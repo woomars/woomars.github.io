@@ -1,0 +1,93 @@
+:root {
+  --bg: #14161c;
+  --card: #1e212b;
+  --line: #2b2f3b;
+  --text: #eef0f5;
+  --muted: #9aa1b2;
+  --soft: #d5d9e3;
+  --label: #7f8698;
+  --goal: #ffd166;
+  --chip: #2c3140;
+  --play: #d7301f;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+.hub {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: max(20px, env(safe-area-inset-top)) 16px max(28px, env(safe-area-inset-bottom));
+}
+
+header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
+.sub { margin: 0 0 18px; color: var(--muted); font-size: 13px; }
+
+.games {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+@media (min-width: 760px) {
+  .games { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  header h1 { font-size: 30px; }
+}
+@media (min-width: 1140px) {
+  .games { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.gcard {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  color: inherit;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .12s ease, border-color .12s ease;
+}
+.gcard:hover { border-color: #444a5c; }
+.gcard:active { transform: scale(.985); }
+.gcard:focus-visible { outline: 3px solid var(--goal); outline-offset: 2px; }
+
+.shot {
+  flex: 0 0 34%;
+  max-width: 150px;
+  align-self: flex-start;
+  aspect-ratio: 390 / 844;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #333;
+}
+.shot img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.info { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.info h2 { margin: 2px 0 4px; font-size: 18px; color: #fff; }
+.pitch { margin: 0 0 8px; font-size: 12.5px; line-height: 1.4; color: #b9bfcc; }
+.lbl { margin: 6px 0 3px; font-size: 11px; color: var(--label); }
+.goal { margin: 0; font-size: 13px; font-weight: 700; color: var(--goal); }
+.rules { margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.45; color: var(--soft); }
+.rules li { margin: 1px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; }
+.chip { padding: 2px 8px; border-radius: 999px; background: var(--chip); color: #cfd5e2; font-size: 11px; }
+.play {
+  display: block;
+  margin-top: 8px;
+  padding: 8px 0;
+  border-radius: 10px;
+  background: var(--play);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}

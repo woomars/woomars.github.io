@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14161c">
+  <title>우루루사's 웹게임</title>
+  <meta name="description" content="핸드폰으로 바로 하는 작은 웹게임들">
+  <meta property="og:title" content="우루루사's 웹게임">
+  <meta property="og:description" content="핸드폰으로 바로 하는 작은 웹게임들">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="hub">
+    <header>
+      <h1>우루루사's 웹게임</h1>
+      <p class="sub">핸드폰으로 바로 하는 작은 웹게임들</p>
+    </header>
+    <div id="games" class="games"></div>
+    <noscript><p class="sub">게임 목록을 보려면 자바스크립트를 켜 주세요.</p></noscript>
+  </main>
+
+  <script src="games.js"></script>
+  <script>
+    (function () {
+      function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text != null) n.textContent = text;
+        return n;
+      }
+
+      function card(g) {
+        var a = el('a', 'gcard');
+        a.href = g.url;
+        a.setAttribute('aria-label', g.title + ' 하러 가기');
+
+        var shot = el('div', 'shot');
+        var img = el('img');
+        img.src = 'shots/' + g.id + '.webp';
+        img.alt = g.title + ' 첫 화면';
+        img.width = 390;
+        img.height = 844;
+        img.loading = 'lazy';
+        shot.appendChild(img);
+
+        var info = el('div', 'info');
+        info.appendChild(el('h2', null, g.title));
+        info.appendChild(el('p', 'pitch', g.pitch));
+        info.appendChild(el('div', 'lbl', '목표'));
+        info.appendChild(el('p', 'goal', g.goal));
+        info.appendChild(el('div', 'lbl', '간단 룰'));
+        var ol = el('ol', 'rules');
+        g.rules.forEach(function (r) { ol.appendChild(el('li', null, r)); });
+        info.appendChild(ol);
+        var chips = el('div', 'chips');
+        g.tags.forEach(function (t) { chips.appendChild(el('span', 'chip', t)); });
+        info.appendChild(chips);
+        info.appendChild(el('span', 'play', '하러 가기'));
+
+        a.appendChild(shot);
+        a.appendChild(info);
+        return a;
+      }
+
+      var box = document.getElementById('games');
+      GAMES.forEach(function (g) { box.appendChild(card(g)); });
+    })();
+  </script>
+</body>
+</html>
