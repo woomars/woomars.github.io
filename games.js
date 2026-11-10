@@ -2,6 +2,15 @@
 // 스크린샷은 shots/<id>.webp 이고 `node tools/shoot.mjs <id>` 로 찍는다.
 var GAMES = [
   {
+    id: 'skyhunt',
+    title: 'SkyHunt',
+    pitch: '느리지만 잘 도는 비행기 vs 빠르지만 잘 못 도는 미사일, 1:1 추격전',
+    goal: '미사일일 때 더 많이 격추하기',
+    rules: ['한 명은 비행기, 한 명은 미사일', '상대가 화면 밖이면 방향 화살표만 보임', '2라운드 역할 교대, 격추 수로 승부'],
+    tags: ['2명', '인터넷 대전', '봇 대전', '가로 화면'],
+    url: 'https://woomars.github.io/skyhunt/',
+  },
+  {
     id: 'yeogiyo',
     title: '여기요!',
     pitch: '같은 메뉴가 딱 5개면 벨을 누르는 가족용 반응 속도 카드 게임',
