@@ -2,6 +2,15 @@
 // 스크린샷은 shots/<id>.webp 이고 `node tools/shoot.mjs <id>` 로 찍는다.
 var GAMES = [
   {
+    id: 'makta',
+    title: '막타',
+    pitch: '폭탄 카드로 서로 공격하며 손패를 먼저 비우는 가족 카드 게임',
+    goal: '손패를 먼저 다 내기',
+    rules: ['같은 색이나 숫자 내기', '폭격으로 상대 공격', '한 장 남으면 막타!'],
+    tags: ['2~10명', '봇 대전', '카드 게임'],
+    url: 'https://woomars.github.io/makta/',
+  },
+  {
     id: 'skyhunt',
     title: 'SkyHunt',
     pitch: '느리지만 잘 도는 비행기 vs 빠르지만 잘 못 도는 미사일, 1:1 추격전',
