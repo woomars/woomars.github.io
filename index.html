@@ -9,12 +9,19 @@
   <meta property="og:title" content="우루루사's 웹게임">
   <meta property="og:description" content="핸드폰으로 바로 하는 작은 웹게임들">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
+  <link rel="manifest" href="/manifest.webmanifest">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main class="hub">
     <header>
-      <h1>우루루사's 웹게임</h1>
+      <div class="head-row">
+        <h1>우루루사's 웹게임</h1>
+        <button id="install" class="install" hidden aria-label="핸드폰에 앱으로 설치 (전체 화면)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M12 7v7M9 11l3 3 3-3M10 18.5h4"/></svg>
+          <span>설치</span>
+        </button>
+      </div>
       <p class="sub">핸드폰으로 바로 하는 작은 웹게임들</p>
     </header>
     <div id="games" class="games"></div>
@@ -66,6 +73,25 @@
 
       var box = document.getElementById('games');
       GAMES.forEach(function (g) { box.appendChild(card(g)); });
+
+      // 앱으로 설치하면 메뉴와 모든 게임이 같은 전체 화면 창에서 열린다(사이트 전체가 앱 범위).
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(function () {});
+      }
+      var installBtn = document.getElementById('install');
+      var deferred = null;
+      var inApp = matchMedia('(display-mode: fullscreen), (display-mode: standalone)').matches;
+      window.addEventListener('beforeinstallprompt', function (e) {
+        e.preventDefault();
+        deferred = e;
+        if (!inApp) installBtn.hidden = false;
+      });
+      installBtn.addEventListener('click', function () {
+        if (!deferred) return;
+        deferred.prompt();
+        deferred.userChoice.finally(function () { deferred = null; installBtn.hidden = true; });
+      });
+      window.addEventListener('appinstalled', function () { installBtn.hidden = true; });
     })();
   </script>
 </body>

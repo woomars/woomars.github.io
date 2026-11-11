@@ -2,6 +2,15 @@
 // 스크린샷은 shots/<id>.webp 이고 `node tools/shoot.mjs <id>` 로 찍는다.
 var GAMES = [
   {
+    id: 'paper-airplane',
+    title: '종이비행기 공중전',
+    pitch: '흰 선으로 그린 종이비행기를 실제 같은 비행 물리로 모는 3D 공중전',
+    goal: '지금은 혼자 비행 연습 (대전은 준비 중)',
+    rules: ['화면 아무 곳이나 끌어 조종 (당기면 기수 ↑)', '오른쪽 막대로 엔진 출력', '급선회하면 속도를 잃고, 느리면 실속'],
+    tags: ['1명', '3D 비행', '세로 화면'],
+    url: 'https://woomars.github.io/paper_airplane_war/',
+  },
+  {
     id: 'makta',
     title: '막타',
     pitch: '폭탄 카드로 서로 공격하며 손패를 먼저 비우는 가족 카드 게임',

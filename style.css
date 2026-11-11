@@ -91,3 +91,24 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
   font-weight: 700;
   text-align: center;
 }
+
+/* 맨 위 오른쪽 설치 버튼: 설치 안 했고 브라우저가 설치를 제안할 수 있을 때만 보인다 */
+.head-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.install {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  margin-top: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--goal);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--goal);
+  font: 700 14px/1 inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+.install svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.install[hidden] { display: none; }
