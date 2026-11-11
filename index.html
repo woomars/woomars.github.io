@@ -38,6 +38,10 @@
         return n;
       }
 
+      // 카운터 키 = 게임 주소의 첫 칸(https://woomars.github.io/yeogiyo/ → yeogiyo)
+      var playsEl = {};
+      function gameKey(g) { return g.url.split('/')[3]; }
+
       function card(g) {
         var a = el('a', 'gcard');
         a.href = g.url;
@@ -54,6 +58,10 @@
 
         var info = el('div', 'info');
         info.appendChild(el('h2', null, g.title));
+        var plays = el('p', 'plays');
+        plays.hidden = true;
+        playsEl[gameKey(g)] = plays;
+        info.appendChild(plays);
         info.appendChild(el('p', 'pitch', g.pitch));
         info.appendChild(el('div', 'lbl', '목표'));
         info.appendChild(el('p', 'goal', g.goal));
@@ -73,6 +81,22 @@
 
       var box = document.getElementById('games');
       GAMES.forEach(function (g) { box.appendChild(card(g)); });
+
+      // 게임별로 해 본 기기 수(각 게임의 count.js가 기기당 한 번 센다). 못 받으면 아무것도 안 보인다.
+      if (typeof fetch === 'function') {
+        fetch('https://woomars-counter.vercel.app/api/plays')
+          .then(function (r) { return r.ok ? r.json() : {}; })
+          .then(function (counts) {
+            Object.keys(playsEl).forEach(function (k) {
+              var n = Number(counts[k]);
+              if (n > 0) {
+                playsEl[k].textContent = n.toLocaleString('ko-KR') + '명이 해 봤어요';
+                playsEl[k].hidden = false;
+              }
+            });
+          })
+          .catch(function () {});
+      }
 
       // 앱으로 설치하면 메뉴와 모든 게임이 같은 전체 화면 창에서 열린다(사이트 전체가 앱 범위).
       if ('serviceWorker' in navigator) {

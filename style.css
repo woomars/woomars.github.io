@@ -75,6 +75,8 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
 .info h2 { margin: 2px 0 4px; font-size: 18px; color: #fff; }
 .pitch { margin: 0 0 8px; font-size: 12.5px; line-height: 1.4; color: #b9bfcc; }
 .lbl { margin: 6px 0 3px; font-size: 11px; color: var(--label); }
+.plays { margin: -2px 0 2px; font-size: 12px; font-weight: 700; color: var(--goal); }
+.plays[hidden] { display: none; }
 .goal { margin: 0; font-size: 13px; font-weight: 700; color: var(--goal); }
 .rules { margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.45; color: var(--soft); }
 .rules li { margin: 1px 0; }
