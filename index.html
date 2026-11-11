@@ -58,10 +58,6 @@
 
         var info = el('div', 'info');
         info.appendChild(el('h2', null, g.title));
-        var plays = el('p', 'plays');
-        plays.hidden = true;
-        playsEl[gameKey(g)] = plays;
-        info.appendChild(plays);
         info.appendChild(el('p', 'pitch', g.pitch));
         info.appendChild(el('div', 'lbl', '목표'));
         info.appendChild(el('p', 'goal', g.goal));
@@ -76,6 +72,10 @@
 
         a.appendChild(shot);
         a.appendChild(info);
+        var plays = el('span', 'plays'); // 오른쪽 위 모서리에 숫자만(주인 확인용)
+        plays.hidden = true;
+        playsEl[gameKey(g)] = plays;
+        a.appendChild(plays);
         return a;
       }
 
@@ -90,7 +90,7 @@
             Object.keys(playsEl).forEach(function (k) {
               var n = Number(counts[k]);
               if (n > 0) {
-                playsEl[k].textContent = n.toLocaleString('ko-KR') + '번 플레이';
+                playsEl[k].textContent = n.toLocaleString('ko-KR');
                 playsEl[k].hidden = false;
               }
             });
