@@ -1,4 +1,4 @@
-// 게임 화면에 한 줄 넣으면, 이 기기가 그 게임을 여는 날마다 하루 한 번 센다(메뉴 카드의 "○명이 해 봤어요").
+// 게임 화면에 한 줄 넣으면, 이 기기가 그 게임을 여는 날마다 하루 한 번 센다(메뉴 카드의 "○번 플레이").
 //   <script src="https://woomars.github.io/count.js" defer></script>
 // 게임 id는 주소의 첫 칸이다(https://woomars.github.io/yeogiyo/ → yeogiyo). 개인정보는 보내지 않는다.
 (function () {

@@ -82,7 +82,7 @@
       var box = document.getElementById('games');
       GAMES.forEach(function (g) { box.appendChild(card(g)); });
 
-      // 게임별로 해 본 기기 수(각 게임의 count.js가 기기당 한 번 센다). 못 받으면 아무것도 안 보인다.
+      // 게임별 플레이 수(각 게임의 count.js가 기기당 하루 한 번 센다). 못 받으면 아무것도 안 보인다.
       if (typeof fetch === 'function') {
         fetch('https://woomars-counter.vercel.app/api/plays')
           .then(function (r) { return r.ok ? r.json() : {}; })
@@ -90,7 +90,7 @@
             Object.keys(playsEl).forEach(function (k) {
               var n = Number(counts[k]);
               if (n > 0) {
-                playsEl[k].textContent = n.toLocaleString('ko-KR') + '명이 해 봤어요';
+                playsEl[k].textContent = n.toLocaleString('ko-KR') + '번 플레이';
                 playsEl[k].hidden = false;
               }
             });
