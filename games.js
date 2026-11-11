@@ -2,6 +2,15 @@
 // 스크린샷은 shots/<id>.webp 이고 `node tools/shoot.mjs <id>` 로 찍는다.
 var GAMES = [
   {
+    id: 'abyss',
+    title: 'ABYSS',
+    pitch: '손가락으로 그은 방향의 적들 사이를 돌진하며 연달아 베어 넘기는 다크 판타지 액션',
+    goal: '연쇄 콤보로 최대한 많이 처치',
+    rules: ['화면을 그으면 그 방향으로 즉시 꺾어 돌진', '그을 때마다 돌진·연쇄 공격, 평소엔 가까운 적 자동 베기', '오른쪽 아래 버튼으로 특수 공격 3종'],
+    tags: ['1명', '가로 화면', '액션', '개발 중'],
+    url: 'https://woomars.github.io/abyss/',
+  },
+  {
     id: 'paper-airplane',
     title: '종이비행기 공중전',
     pitch: '색색의 종이비행기를 실제 같은 비행 물리로 모는 3D 공중전',
