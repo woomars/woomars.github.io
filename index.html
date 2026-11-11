@@ -61,6 +61,19 @@
         var ol = el('ol', 'rules');
         g.rules.forEach(function (r) { ol.appendChild(el('li', null, r)); });
         info.appendChild(ol);
+        if (g.updates && g.updates.length) {
+          info.appendChild(el('div', 'lbl', '업데이트'));
+          var ul = el('ul', 'updates');
+          g.updates.slice(0, 2).forEach(function (u) {
+            var d = u.date.split('-');
+            var t = el('time', null, Number(d[1]) + '.' + Number(d[2]));
+            t.setAttribute('datetime', u.date);
+            var li = el('li', null, u.text);
+            li.insertBefore(t, li.firstChild);
+            ul.appendChild(li);
+          });
+          info.appendChild(ul);
+        }
         var chips = el('div', 'chips');
         g.tags.forEach(function (t) { chips.appendChild(el('span', 'chip', t)); });
         info.appendChild(chips);
