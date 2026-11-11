@@ -78,9 +78,6 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
 .goal { margin: 0; font-size: 13px; font-weight: 700; color: var(--goal); }
 .rules { margin: 0; padding-left: 16px; font-size: 12px; line-height: 1.45; color: var(--soft); }
 .rules li { margin: 1px 0; }
-.updates { margin: 0; padding: 0; list-style: none; font-size: 12px; line-height: 1.45; color: var(--soft); }
-.updates li { margin: 1px 0; }
-.updates time { display: inline-block; min-width: 34px; font-weight: 700; color: var(--goal); font-variant-numeric: tabular-nums; }
 .chips { display: flex; flex-wrap: wrap; gap: 4px; margin-top: auto; padding-top: 8px; }
 .chip { padding: 2px 8px; border-radius: 999px; background: var(--chip); color: #cfd5e2; font-size: 11px; }
 .play {

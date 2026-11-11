@@ -1,6 +1,5 @@
 // 게임 목록. 맨 위에 있는 게임이 메뉴 맨 위에 나온다(새 게임은 맨 위에 추가).
 // 스크린샷은 shots/<id>.webp 이고 `node tools/shoot.mjs <id>` 로 찍는다.
-// updates(선택): 업데이트 내역, 최신이 위. 카드에는 최근 2개만 나온다.
 var GAMES = [
   {
     id: 'paper-airplane',
@@ -37,10 +36,6 @@ var GAMES = [
     rules: ['차례대로 카드 한 장씩 뒤집기', '같은 메뉴 합이 5면 벨!', '틀리면 한 장씩 벌칙'],
     tags: ['2~4명', '인터넷 대전', '봇 대전', '카드 게임', '반응 속도'],
     url: 'https://woomars.github.io/yeogiyo/',
-    updates: [
-      { date: '2026-11-11', text: '봇 추가 (상·중·하), 혼자서도 가능' },
-      { date: '2026-11-09', text: '효과음 추가' },
-    ],
   },
   {
     id: 'stock-rpg',
