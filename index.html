@@ -43,9 +43,9 @@
       function gameKey(g) { return g.url.split('/')[3]; }
 
       function card(g) {
-        var a = el('a', 'gcard');
+        var a = el('a', g.wip ? 'gcard wip' : 'gcard');
         a.href = g.url;
-        a.setAttribute('aria-label', g.title + ' 하러 가기');
+        a.setAttribute('aria-label', g.title + (g.wip ? ' (개발 중) 미리 보기' : ' 하러 가기'));
 
         var shot = el('div', 'shot');
         var img = el('img');
@@ -68,7 +68,7 @@
         var chips = el('div', 'chips');
         g.tags.forEach(function (t) { chips.appendChild(el('span', 'chip', t)); });
         info.appendChild(chips);
-        info.appendChild(el('span', 'play', '하러 가기'));
+        info.appendChild(el('span', 'play', g.wip ? '개발 중' : '하러 가기'));
 
         a.appendChild(shot);
         a.appendChild(info);

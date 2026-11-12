@@ -95,6 +95,13 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
   text-align: center;
 }
 
+/* 개발 중인 게임: 맨 아래에 흐리게(눌러서 들어가 볼 수는 있음) */
+.gcard.wip { border-style: dashed; background: #191b22; }
+.gcard.wip > .shot, .gcard.wip > .info { opacity: .45; }
+.gcard.wip .shot img { filter: grayscale(1); }
+.gcard.wip .play { background: transparent; border: 1px solid var(--label); color: var(--muted); font-weight: 600; }
+.gcard.wip:hover { border-color: var(--line); }
+
 /* 맨 위 오른쪽 설치 버튼: 설치 안 했고 브라우저가 설치를 제안할 수 있을 때만 보인다 */
 .head-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .install {
