@@ -1,7 +1,7 @@
 // 메뉴 서비스 워커. 사이트 전체(/)를 범위로 등록해 설치 앱이 모든 게임을 같은 전체 화면 창에서 열게 한다.
 // 다루는 것은 메뉴 파일뿐이다(네트워크 우선, 실패하면 캐시). 게임 요청은 건드리지 않아 게임 업데이트가 바로 보인다.
-const CACHE = 'hub-v2';
-const OWN = ['/', '/index.html', '/style.css', '/games.js', '/flags.js', '/manifest.webmanifest', '/manifest.en.webmanifest', '/manifest.ja.webmanifest'];
+const CACHE = 'hub-v3';
+const OWN = ['/', '/index.html', '/style.css', '/games.js', '/flags.js', '/ios.js', '/manifest.webmanifest', '/manifest.en.webmanifest', '/manifest.ja.webmanifest'];
 const OWN_DIRS = ['/shots/', '/icons/'];
 
 self.addEventListener('install', (e) => {

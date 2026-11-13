@@ -141,3 +141,8 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
 .langs button svg { display: block; width: 22px; height: 15px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); }
 .langs button[aria-pressed="true"] { opacity: 1; background: var(--chip); }
 .langs button:focus-visible { outline: 2px solid var(--goal); outline-offset: 1px; }
+
+/* 아이폰일 때만: 맨 아래 문제 신고 버튼(ios.js 가 woomars@gmail.com 으로 보낼 메일을 채움) */
+.ios-foot { margin: 22px 0 0; text-align: center; }
+.ios-foot[hidden] { display: none; }
+.ios-foot button { min-height: 44px; padding: 0 16px; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--muted); font: 600 13px/1 inherit; font-family: inherit; cursor: pointer; }

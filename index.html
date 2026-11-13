@@ -12,6 +12,8 @@
   <meta property="og:description" content="핸드폰으로 바로 하는 작은 웹게임들">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
   <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <script src="/ios.js" data-game="hub" defer></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -32,6 +34,7 @@
       <p class="sub" data-t="sub">핸드폰으로 바로 하는 작은 웹게임들</p>
     </header>
     <div id="games" class="games"></div>
+    <p class="ios-foot" id="ios-foot" hidden><button type="button" id="ios-report"></button></p>
     <noscript><p class="sub">게임 목록을 보려면 자바스크립트를 켜 주세요. / Please enable JavaScript to see the games. / ゲーム一覧を見るにはJavaScriptを有効にしてください。</p></noscript>
   </main>
 
@@ -179,6 +182,24 @@
         deferred.userChoice.finally(function () { deferred = null; installBtn.hidden = true; });
       });
       window.addEventListener('appinstalled', function () { installBtn.hidden = true; });
+
+      // 아이폰: 설치 묻기(beforeinstallprompt)가 없어서 설치 버튼은 "홈 화면에 추가" 안내를 띄운다. 맨 아래에 문제 신고 버튼(ios.js).
+      function iosSetup() {
+        var W = window.WoomarsIOS;
+        if (!W || !W.isIOS) return;
+        if (!W.standalone) {
+          installBtn.hidden = false;
+          installBtn.onclick = function () { W.showInstallGuide(); };
+        }
+        var foot = document.getElementById('ios-foot');
+        var rb = document.getElementById('ios-report');
+        rb.textContent = W.reportLabel();
+        rb.onclick = W.report;
+        foot.hidden = false;
+      }
+      if (window.WoomarsIOS) iosSetup(); else window.addEventListener('woomars-ios-ready', iosSetup);
+      var renderBase = render;
+      render = function () { renderBase(); var rb = document.getElementById('ios-report'); if (window.WoomarsIOS && rb) rb.textContent = window.WoomarsIOS.reportLabel(); };
     })();
   </script>
 </body>
