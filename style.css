@@ -17,7 +17,7 @@ html, body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  font-family: system-ui, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", "Hiragino Sans", "Yu Gothic UI", "Yu Gothic", Meiryo, "Noto Sans JP", sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -122,3 +122,22 @@ header h1 { margin: 8px 0 2px; font-size: 24px; color: #fff; }
 }
 .install svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .install[hidden] { display: none; }
+
+/* 언어 선택: 맨 위 오른쪽 국기 버튼(한국 · 미국 · 일본, flags.js). 고른 값은 woomars.lang 으로 모든 게임이 같이 쓴다 */
+.langs { display: flex; justify-content: flex-end; gap: 4px; margin: -6px -6px -4px 0; }
+.langs button {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 32px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  opacity: .45;
+  -webkit-tap-highlight-color: transparent;
+}
+.langs button svg { display: block; width: 22px; height: 15px; border-radius: 2px; box-shadow: 0 0 0 1px rgba(0,0,0,.18); }
+.langs button[aria-pressed="true"] { opacity: 1; background: var(--chip); }
+.langs button:focus-visible { outline: 2px solid var(--goal); outline-offset: 1px; }
