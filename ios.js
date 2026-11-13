@@ -7,7 +7,7 @@
 //     허브(woomars.github.io)를 홈 화면에 추가한 앱 안에서 연 게임도 앱으로 친다(같은 범위).
 //  2) window.WoomarsIOS.report(): woomars@gmail.com 으로 보낼 문제 신고 메일을 기기 정보와 함께 채워 연다.
 //     (정적 사이트라 보내기 버튼은 사용자가 메일 앱에서 누른다.) 게임은 아이폰일 때만 시작 화면에 신고 버튼을 둔다.
-// 언어는 woomars.lang(허브·게임 공유) → <html lang> 순. 시험용: 주소에 ?ios=1(아이폰 흉내) 또는 ?ios=app(앱 실행 흉내).
+// 언어는 ?lang= → woomars.lang(허브·게임 공유) → 브라우저 언어 순(게임과 같음). 시험용: 주소에 ?ios=1(아이폰 흉내) 또는 ?ios=app(앱 실행 흉내).
 (function () {
   'use strict';
   var me = document.currentScript;
@@ -58,11 +58,16 @@
       subject: 'iPhone不具合報告', bodyHint: '（どんな問題があったかここに書いてください。スクリーンショットがあると助かります。）',
     },
   };
+  // 게임과 같은 순서: 주소 ?lang= → 저장값 woomars.lang → 브라우저 언어(ko·ja 외에는 영어).
+  // (정적 <html lang="ko"> 는 보지 않는다 — 게임이 언어를 정하기 전에 이 스크립트가 먼저 돌 수 있어서)
   function lang() {
+    var q = /[?&]lang=(ko|en|ja)(?:&|$)/.exec(location.search);
+    if (q) return q[1];
     var l = '';
     try { l = localStorage.getItem('woomars.lang') || ''; } catch (e) { /* 저장 안 되는 창 */ }
-    if (!T[l]) l = (document.documentElement.lang || '').slice(0, 2);
-    return T[l] ? l : 'en';
+    if (T[l]) return l;
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+    return /^ko/i.test(nav) ? 'ko' : /^ja/i.test(nav) ? 'ja' : 'en';
   }
   function t(k) { return T[lang()][k]; }
 
@@ -84,6 +89,7 @@
 
   var SHARE = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="vertical-align:-4px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M6 11H5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-1"/></svg>';
   var CSS = '.wios{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top)) 16px max(16px,env(safe-area-inset-bottom));background:rgba(10,12,18,.94);color:#eef0f5;font:15px/1.5 system-ui,-apple-system,"Apple SD Gothic Neo","Hiragino Sans",sans-serif;-webkit-text-size-adjust:100%;overflow:auto}'
+    + '.wios:lang(ja){font-family:"Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,"Noto Sans JP",system-ui,sans-serif}'
     + '.wios .box{max-width:420px;width:100%}.wios h2{margin:0 0 8px;font-size:20px;line-height:1.3}.wios p{margin:0 0 12px;color:#b9bfcc}'
     + '.wios ol{margin:0 0 12px;padding-left:22px}.wios li{margin:6px 0}.wios .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}'
     + '.wios button,.wios a.b{flex:1 1 auto;min-height:44px;padding:0 14px;border:1px solid #444a5c;border-radius:12px;background:#1e212b;color:#eef0f5;font:inherit;font-weight:700;text-decoration:none;display:flex;align-items:center;justify-content:center;cursor:pointer}'

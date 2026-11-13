@@ -14,7 +14,7 @@
 | [10년 모의 투자](https://github.com/woomars/stock-game) | 실제 시세로 하는 개인용 모의 투자 | https://woomars.github.io/stock-game/ |
 | [심연의 기사](https://github.com/woomars/abyss) (개발 중) | 그은 방향으로 돌진해 연달아 베며 심연을 내려가는 다크 판타지 액션. 쓰러지면 아들이, 손자가 대를 잇는다 | https://woomars.github.io/abyss/ |
 
-개인 재미를 위한 비상업 프로젝트입니다. 메뉴 화면은 외부 라이브러리나 글꼴 없이 만들었고, 카드 그림은 각 게임의 첫 화면을 찍은 것입니다. 게임마다 쓴 라이브러리·소리·데이터의 출처와 라이선스는 각 게임 저장소의 README에 있습니다.
+개인 재미를 위한 비상업 프로젝트입니다. 메뉴 화면은 외부 라이브러리나 글꼴 없이 만들었고, 카드 그림은 각 게임의 첫 화면을 찍은 것입니다. 게임마다 쓴 라이브러리·소리·데이터의 출처와 라이선스는 각 게임 저장소의 README에 있습니다. 메뉴 화면의 코드와 직접 만든 그림(아이콘·국기·스크린샷)은 MIT 라이선스([LICENSE](LICENSE))이고, 스크린샷에 보이는 기업 로고·글꼴 같은 제3자 요소와 각 게임의 자료는 그 게임 저장소의 README와 LICENSE를 따릅니다.
 
 ## English
 
@@ -32,7 +32,7 @@
 | [10-Year Mock Investing](https://github.com/woomars/stock-game) | Personal paper trading with real market prices | https://woomars.github.io/stock-game/ |
 | [Knight of the Abyss](https://github.com/woomars/abyss) (in development) | Dark fantasy action: dash where you swipe, chain your slashes and descend the abyss. When you fall, your son, then your grandson, carries on | https://woomars.github.io/abyss/ |
 
-A personal, non-commercial project. Each game's repository README lists the libraries, sounds and data it uses and their licenses.
+A personal, non-commercial project. Each game's repository README lists the libraries, sounds and data it uses and their licenses. The menu's code and original artwork (icons, flags, screenshots) are under the MIT License ([LICENSE](LICENSE)); third-party elements visible in the screenshots, such as company logos and fonts, and each game's material follow that game's README and LICENSE.
 
 ## 日本語
 
@@ -50,4 +50,4 @@ A personal, non-commercial project. Each game's repository README lists the libr
 | [10年模擬投資](https://github.com/woomars/stock-game) | 実際の相場で遊ぶ個人用の模擬投資 | https://woomars.github.io/stock-game/ |
 | [深淵の騎士](https://github.com/woomars/abyss)（開発中） | なぞった方向へ突進して連続で斬り、深淵を降りていくダークファンタジーアクション。倒れても息子が、孫が跡を継ぐ | https://woomars.github.io/abyss/ |
 
-個人の非商用プロジェクトです。各ゲームで使っているライブラリ・音・データの出典とライセンスは、それぞれのリポジトリの README にあります。
+個人の非商用プロジェクトです。各ゲームで使っているライブラリ・音・データの出典とライセンスは、それぞれのリポジトリの README にあります。 メニュー画面のコードと自作の画像（アイコン・国旗・スクリーンショット）は MIT License（[LICENSE](LICENSE)）です。スクリーンショットに写る企業ロゴやフォントなどの第三者の要素と各ゲームの素材は、それぞれのリポジトリの README と LICENSE に従います。
